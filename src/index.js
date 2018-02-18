@@ -1,8 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+import Main from "./Main";
+
+import "./core.css"
+ 
+ReactDOM.render(
+  <Main/>, 
+  document.getElementById("root")
+);
+
+// vim: set ts=2 sw=2 expandtab:
