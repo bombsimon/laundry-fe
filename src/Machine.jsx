@@ -1,29 +1,27 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class Machine extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      machines: []
-    }
+      machines: [],
+    };
   }
 
   componentDidMount() {
     fetch('http://localhost:3400/v1/machines')
-      .then(response => {
-        return response.json();
-      }).then(result => {
+      .then(response => response.json()).then((result) => {
         this.setState({
-          machines: result
+          machines: result,
         });
       });
   }
 
   render() {
-    const machines = this.state.machines
+    const { machines } = this.state;
 
     return (
-      <table width="100%">
+      <table className="table">
         <thead>
           <tr>
             <th>id</th>
@@ -32,7 +30,13 @@ class Machine extends Component {
           </tr>
         </thead>
         <tbody>
-          {machines.map(m => <tr key={m.id}><td>{m.id}</td><td>{m.info}</td><td>{m.working.toString()}</td></tr>)}
+          {machines.map(m => (
+            <tr key={m.id}>
+              <td>{m.id}</td>
+              <td>{m.info}</td>
+              <td>{m.working.toString()}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     );
